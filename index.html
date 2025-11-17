@@ -1,4 +1,4 @@
-<!-- Cleaned and functional HTML template for e-Challan receipt -->
+<!-- Cleaned and functional HTML template for e-Challan receipt (wrapped & centered) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,102 +7,130 @@
     <title>e-Challan Receipt</title>
     <link rel="stylesheet" href="https://geologymining.jk.gov.in/library/bootstrap-4.6.1/css/bootstrap.min.css">
     <style>
+        /* Page-level background to create white/space effect around the receipt */
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            -webkit-font-smoothing:antialiased;
+            margin: 0;
+            padding: 18px 0;
+        }
+
+        /* Centered wrapper that mimics the original page width */
+        .page {
+            max-width: 980px;    /* adjust width to match original look (try 980, 900, 750) */
+            margin: 0 auto;
+            padding: 12px;       /* white space between receipt and page edge */
+            box-sizing: border-box;
+        }
+
+        /* White frame/card around the orange receipt */
+        .card-wrap {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        /* Keep your existing styles but minor mobile adjustment */
         .animatecolor {
             animation: mycolor 0.9s infinite !important;
         }
 
         @keyframes mycolor {
-            from {
-                color: #e91e63;
-            }
-            to{
-                color: #3F51B5;
-            }
+            from { color: #e91e63; }
+            to   { color: #3F51B5; }
         }
 
         .bgimage {
             background-image: url("../images/home/logo.png");
             background-color: #cccccc;
-            /* Used if the image is unavailable */
             height: auto;
             background-position: center;
-            /* Center the image */
             background-repeat: no-repeat;
-            /* Do not repeat the image */
-
         }
 
-        .tt {
-            color: #ffeb3b;
-        }
+        .tt { color: #ffeb3b; }
 
         td {
             padding: 10px;
-            ;
         }
 
-        .table td,
-        .table th {
+        .table td, .table th {
             padding: 0.40rem;
         }
-        p{
-            color: white;
+
+        p { color: white; margin: 0 0 8px 0; }
+
+        .logo { max-width: 120px; display:block; margin: 0 auto 8px; }
+
+        /* small-screen spacing */
+        @media (max-width: 480px) {
+            .page { padding: 8px; }
+            .card-wrap { padding: 8px; }
         }
     </style>
 </head>
 <body>
-<div id="content1">
-    <div style="border:1px solid #000;margin-top:5px;margin-bottom:5px;padding:20px;background-color:#dc8504;">
+    <div class="page">
+        <div class="card-wrap">
+            <!-- your original content preserved (only outer wrappers changed) -->
+            <div id="content1">
+                <div style="border:1px solid #000;margin-top:5px;margin-bottom:5px;padding:20px;background-color:#dc8504;">
 
-        <div class="bgimagee">
-            <p class="text-white"><b><strong style="text-decoration: underline; font-size:20px; color:#111111;">Note:</strong> The Information mentioned in e-Challan, Such as (Validity and Vehicle No.) should be matched with the information mentioned in the https://geologymining.jk.gov.in/ which can be seen after scanning the QR code encrypted on e-Challan.</b></p>
-            <p class="text-white"><b><strong style="text-decoration: underline; font-size:20px; color:#111111;">सूचना:</strong> ई-चालान में उल्लिखित जानकारी, जैसे (वैधता और वाहन संख्या आदि) का मिलान https://geologymining.jk.gov.in/ में उल्लिखित जानकारी से किया जाना चाहिए, जिसे ई-चालान पर छपे क्यूआर कोड को स्कैन करने के बाद देखा जा सकता है। </b></p>
-            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-        </div>
+                    <div class="bgimagee">
+                        <p class="text-white"><b><strong style="text-decoration: underline; font-size:20px; color:#111111;">Note:</strong> The Information mentioned in e-Challan, Such as (Validity and Vehicle No.) should be matched with the information mentioned in the https://geologymining.jk.gov.in/ which can be seen after scanning the QR code encrypted on e-Challan.</b></p>
+                        <p class="text-white"><b><strong style="text-decoration: underline; font-size:20px; color:#111111;">सूचना:</strong> ई-चालान में उल्लिखित जानकारी, जैसे (वैधता और वाहन संख्या आदि) का मिलान https://geologymining.jk.gov.in/ में उल्लिखित जानकारी से किया जाना चाहिए, जिसे ई-चालान पर छपे क्यूआर कोड को स्कैन करने के बाद देखा जा सकता है। </b></p>
+                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    </div>
 
-        <!-- FIXED: removed extra container border -->
-        <div style="margin-top:5px;margin-bottom:5px;padding:20px;background-color:#ff9800; border:1px solid #000;">
+                    <!-- FIXED: removed extra container border -->
+                    <div style="margin-top:5px;margin-bottom:5px;padding:20px;background-color:#ff9800; border:1px solid #000;">
 
-            <div class="mb-2">
-                <p class="text-center"><img src="https://geologymining.jk.gov.in/images/home/logo.png" alt="Logo"></p>
+                        <div class="mb-2">
+                            <p class="text-center"><img class="logo" src="https://geologymining.jk.gov.in/images/home/logo.png" alt="Logo"></p>
 
-                <h3 class="animatecolor text-center"><b>e-challan active.</b></h3>
-                <h3 class="text-center"><b>ई-चालान सक्रिय</b></h3>
-                <h6 class="text-center"><b>URL: <span class="tt">https://geologymining.jk.gov.in/</span></b></h6>
-                <h4 class="text-center"><b>Challan No. : JK05B-17729093650</b></h4>
+                            <h3 class="animatecolor text-center"><b>e-challan active.</b></h3>
+                            <h3 class="text-center"><b>ई-चालान सक्रिय</b></h3>
+                            <h6 class="text-center"><b>URL: <span class="tt">https://geologymining.jk.gov.in/</span></b></h6>
+                            <h4 class="text-center"><b>Challan No. : JK05B-17729093650</b></h4>
 
-                <table class="table table-striped" style="background-color:#dc8504; border:none !important;">
-                    <tr>
-                        <th class="text-white">Name & Location of Seller</th>
-                        <td><h6 class="text-white"><b class="tt">Mohd Saleem Dar Dar Mohalla Drangbal Baramulla</b></h6></td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Validity</th>
-                        <td>
-                            <h6 class="text-white"><b>Date</b> <b class="tt">(18-11-2025 to 18-11-2025)</b> 
-                            Time <b class="tt">(08:22 AM to 11:22 AM)</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Route of the Transportation</th>
-                        <td class="text-white">Source <b><u>Drangbal</u></b> Destination <b><u>Chahal</u></b></td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Vehicle no.</th>
-                        <td class="text-white"><b>JK01L8523</b></td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Name & Address of Consignee</th>
-                        <td class="text-white">Kasim, Chahal</td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Mineral</th>
-                        <td class="text-white">Rubble (6 MT)</td>
-                    </tr>
-                </table>
+                            <table class="table table-striped" style="background-color:#dc8504; border:none !important;">
+                                <tr>
+                                    <th class="text-white">Name & Location of Seller</th>
+                                    <td><h6 class="text-white"><b class="tt">Mohd Saleem Dar Dar Mohalla Drangbal Baramulla</b></h6></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-white">Validity</th>
+                                    <td>
+                                        <h6 class="text-white"><b>Date</b> <b class="tt">(18-11-2025 to 18-11-2025)</b> 
+                                        Time <b class="tt">(08:22 AM to 11:22 AM)</b></h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-white">Route of the Transportation</th>
+                                    <td class="text-white">Source <b><u>Drangbal</u></b> Destination <b><u>Chahal</u></b></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-white">Vehicle no.</th>
+                                    <td class="text-white"><b>JK01L8523</b></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-white">Name & Address of Consignee</th>
+                                    <td class="text-white">Kasim, Chahal</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-white">Mineral</th>
+                                    <td class="text-white">Rubble (6 MT)</td>
+                                </tr>
+                            </table>
 
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- end original content -->
         </div>
     </div>
-</div>
+</body>
 </html>

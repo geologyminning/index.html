@@ -1,108 +1,273 @@
-<!-- Cleaned and functional HTML template for e-Challan receipt -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-Challan Receipt</title>
-    <link rel="stylesheet" href="https://geologymining.jk.gov.in/library/bootstrap-4.6.1/css/bootstrap.min.css">
-    <style>
-        .animatecolor {
-            animation: mycolor 0.9s infinite !important;
-        }
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>e-Challan Receipt</title>
 
-        @keyframes mycolor {
-            from {
-                color: #e91e63;
-            }
-            to{
-                color: #3F51B5;
-            }
-        }
+  <!-- Bootstrap CSS (kept same source to preserve spacing if needed) -->
+  <link rel="stylesheet" href="https://geologymining.jk.gov.in/library/bootstrap-4.6.1/css/bootstrap.min.css">
 
-        .bgimage {
-            background-image: url("../images/home/logo.png");
-            background-color: #cccccc;
-            /* Used if the image is unavailable */
-            height: auto;
-            background-position: center;
-            /* Center the image */
-            background-repeat: no-repeat;
-            /* Do not repeat the image */
+  <style>
+    :root{
+      --outer:#dc8504;   /* dark orange background */
+      --panel:#ff9800;   /* main panel orange */
+      --accent:#ffeb3b;  /* yellow highlight */
+      --text:#111;
+    }
 
-        }
+   html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  background:#ffffff !important;   /* WHITE PAGE BACKGROUND */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  -webkit-print-color-adjust:exact;
+}
+    /* narrow vertical card like original image */
+    .card-wrap{width:360px;max-width:92%;margin:12px auto;border:3px solid #000;background:var(--outer);box-sizing:border-box;padding:6px}
+    .panel{background:var(--panel);padding:10px;border:1px solid rgba(0,0,0,.45)}
+    .note{color:#fff;margin-bottom:8px}
+    .note strong{color:var(--text);text-decoration:underline;font-size:16px}
+    .logo{display:block;margin:6px auto 6px;max-width:84px;height:auto}
+    h3.animate{animation:animatecol 0.9s infinite;margin:2px 0}
+    @keyframes animatecol{from{color:#e91e63}to{color:#3F51B5}}
+    .center{text-align:center}
+    .challan-no{font-weight:700;color:var(--text);margin:8px 0}
+    .tt{color:var(--accent);font-weight:700}
+    .mini{font-size:13px;color:var(--text);margin:2px 0}
+    .bigline{font-size:14px;font-weight:700;color:var(--text);margin:4px 0}
+    .details{background:transparent;margin-top:8px}
+    .longtable{width:100%;border-collapse:collapse;background:transparent;color:#fff}
+    .longtable td{padding:8px;border-bottom:1px solid rgba(0,0,0,.12);vertical-align:top}
+    .underline{font-weight:700;text-decoration:underline}
+    .approved-img{max-width:120px;display:block;margin:6px auto}
+    .print-btn{margin-top:8px;text-align:right}
+    hr.sep{height:2px;border-width:0;color:gray;background-color:gray;margin:8px 0}
 
-        .tt {
-            color: #ffeb3b;
-        }
+    /* print-friendly adjustments */
+    @media print{
+      html,body{background:white}
+      .card-wrap{border:none;background:white}
+      .panel{border:none;box-shadow:none}
+      .no-print{display:none}
+    }
 
-        td {
-            padding: 10px;
-            ;
-        }
-
-        .table td,
-        .table th {
-            padding: 0.40rem;
-        }
-        p{
-            color: white;
-        }
-    </style>
+    /* responsive smaller screens */
+    @media (max-width:420px){ .card-wrap{width:94%} }
+  </style>
 </head>
 <body>
-<div id="content1">
-    <div style="border:1px solid #000;margin-top:5px;margin-bottom:5px;padding:20px;background-color:#dc8504;">
+  <!-- Page Content  -->
+        <div id="content1">
+            <container>
+                <div class="container " style="border:1px solid;margin-top:5px;margin-bottom:5px;padding:20px; background-color:#ff9800;">
+                                        <div class="bgimagee">
+                       <p class="">
+  <b>
+    <strong style="text-decoration: underline; font-size:20px; color:#111111;">Note:</strong>
+    <span style="color:#ffffff;">
+      The Information mentioned in e-Challan, Such as (Validity and Vehicle No.) should be matched with the information mentioned in the https://geologymining.jk.gov.in/ which can be seen after scanning the QR code encrypted on e-Challan.
+    </span>
+  </b>
+</p>
 
-        <div class="bgimagee">
-            <p class="text-white"><b><strong style="text-decoration: underline; font-size:20px; color:#111111;">Note:</strong> The Information mentioned in e-Challan, Such as (Validity and Vehicle No.) should be matched with the information mentioned in the https://geologymining.jk.gov.in/ which can be seen after scanning the QR code encrypted on e-Challan.</b></p>
-            <p class="text-white"><b><strong style="text-decoration: underline; font-size:20px; color:#111111;">सूचना:</strong> ई-चालान में उल्लिखित जानकारी, जैसे (वैधता और वाहन संख्या आदि) का मिलान https://geologymining.jk.gov.in/ में उल्लिखित जानकारी से किया जाना चाहिए, जिसे ई-चालान पर छपे क्यूआर कोड को स्कैन करने के बाद देखा जा सकता है। </b></p>
-            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-        </div>
+<p class="">
+  <b>
+    <strong style="text-decoration: underline; font-size:20px; color:#111111;">सूचना:</strong>
+    <span style="color:#ffffff;">
+      ई-चालान में उल्लिखित जानकारी, जैसे (वैधता और वाहन संख्या आदि) का मिलान https://geologymining.jk.gov.in/ में उल्लिखित जानकारी से किया जाना चाहिए, जिसे ई-चालान पर छपे क्यूआर कोड को स्कैन करने के बाद देखा जा सकता है।
+    </span>
+  </b>
+</p>
 
-        <!-- FIXED: removed extra container border -->
-        <div style="margin-top:5px;margin-bottom:5px;padding:20px;background-color:#ff9800; border:1px solid #000;">
 
-            <div class="mb-2">
-                <p class="text-center"><img src="https://geologymining.jk.gov.in/images/home/logo.png" alt="Logo"></p>
+                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    </div>
+                                            <div class="text-center mb-4">
+                            <p class="text-center"><img src="https://geologymining.jk.gov.in/images/home/logo.png" alt="Logo"></p>
+                            <p>
+                            <h4><b>Government of Jammu & Kashmir</b></h4>
+                            <h4><b>Department of Geology & Mining</b></h4>
+                            <b>FORM 'A'</b>
+                            <p style="color:#ffffff;">
+  <b>[See Rule 38(5), 50(12), 60(1)(v), 70, 71]<br>
+  of challan for dispatch of mineral and its products</b>
+</p>
 
-                <h3 class="animatecolor text-center"><b>e-challan active.</b></h3>
-                <h3 class="text-center"><b>ई-चालान सक्रिय</b></h3>
-                <h6 class="text-center"><b>URL: <span class="tt">https://geologymining.jk.gov.in/</span></b></h6>
-                <h4 class="text-center"><b>Challan No. : JK05B-17729093650</b></h4>
+                            <h6><b>E-CHALLAN </b></h6>
+                            </p>
+                        </div>
 
-                <table class="table table-striped" style="background-color:#dc8504; border:none !important;">
-                    <tr>
-                        <th class="text-white">Name & Location of Seller</th>
-                        <td><h6 class="text-white"><b class="tt">Mohd Saleem Dar Dar Mohalla Drangbal Baramulla</b></h6></td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Validity</th>
-                        <td>
-                            <h6 class="text-white"><b>Date</b> <b class="tt">(18-11-2025 to 18-11-2025)</b> 
-                            Time <b class="tt">(08:22 AM to 11:22 AM)</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Route of the Transportation</th>
-                        <td class="text-white">Source <b><u>Drangbal</u></b> Destination <b><u>Chahal</u></b></td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Vehicle no.</th>
-                        <td class="text-white"><b>JK01L8523</b></td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Name & Address of Consignee</th>
-                        <td class="text-white">Kasim, Chahal</td>
-                    </tr>
-                    <tr>
-                        <th class="text-white">Mineral</th>
-                        <td class="text-white">Rubble (6 MT)</td>
-                    </tr>
-                </table>
+                        <div class="text-center mb-4">
+                            <h4 class="d-inline mb-3"><b>Challan No. : </b> <span class="tt"><b>JK05B-7534925920</b></h4>
+                            <h4><span><img src='../images/qrcode/691bec058b512.png' width='100px;' height='100px;'></span><br><strong>(QR-Code)</strong></h4>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h5 class="d-inline mb-3 tt"><b>Mineral : </b> <span><b>Rubble (5 MT)</b></h5>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h4 class="text-center"><b>Validity from 18-11-2025 13:56 PM to 18-11-2025 16:56 PM</b></h4>
+                            <h4 class="text-center"><b>वैधता 18-11-2025 13:56 PM से 18-11-2025 16:56 PM तक </b></h4>
+                        </div>
+                        <h6 class="text-center"><b>URL: <span class="tt">https://geologymining.jk.gov.in/</span></b></h6>
+                        <div class="py-4">
+                    
+                            <table class="table table-striped table-success" style="background-color:#dc8504; color:#ffffff;">
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                1. Type of mineral concessions Lease / License / Permit no. 
+                <b><span style="text-decoration: underline; color:#ffffff;">Permit </span></b><br> 
+                Issuing date <b><span style="text-decoration: underline; color:#ffffff;">18-11-2025</span></b> 
+                Valid upto <b><span style="text-decoration: underline; color:#ffffff;">18-11-2025</span></b>
+            </p>
+        </td>
+    </tr>
 
-            </div>
+    <tr>
+        <td>
+            <p style="color:#ffffff;">2. Name & Style of Concessionary .................................</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">3. Location of mineral concession area .................................</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">4. Type of mineral Granted on mineral concessions .................................</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">5. Quantity of mineral granted on mineral Concessions .................................</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                6. Name & Location of Stone crusher Unit and Holder 
+                <b><span style="text-decoration: underline; color:#ffffff;">Ghulam Mohammad Dar Jalsheeri Baramula</span></b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                7. Type of Finished Products : Sand/Bajri/Kankra (Aggregate)/Dust etc. 
+                <b><span style="text-decoration: underline; color:#ffffff;">Rubble</span></b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                8. Quantity of mineral dispatched 
+                <b><span style="text-decoration: underline; color:#ffffff;">5</span></b> (in MT)
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                9. Date & Time of dispatch 
+                <b><span style="text-decoration: underline; color:#ffffff;">18-11-2025 13:56 PM</span> (Valid upto 3 Hours)</b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                10. Route of the Transportation- Source 
+                <b><span style="text-decoration: underline; color:#ffffff;">Baramulla</span></b> 
+                Destination 
+                <b><span style="text-decoration: underline; color:#ffffff;">Chahal</span></b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                11. Rate of Mineral 
+                <b><span style="text-decoration: underline; color:#ffffff;">Rs.123</span></b> 
+                Total Amount (Excluding GST and Transportation charges) 
+                <b><span style="text-decoration: underline; color:#ffffff;">Rs.615</span></b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                12. GST Bill/No. 
+                <b><span style="text-decoration: underline; color:#ffffff;">NA</span></b>
+                Quantity 
+                <b><span style="text-decoration: underline; color:#ffffff;">5%</span></b> 
+                Amount 
+                <b><span style="text-decoration: underline; color:#ffffff;">Rs.30.75</span></b> 
+                (Enclose copy of GST Invoice)
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                13. Vehicle No. 
+                <b><span style="text-decoration: underline; color:#ffffff;">JK01L8523</span></b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                14. Name & Address of Consignee / Buyer / Purchaser
+                <b><span style="text-decoration: underline; color:#ffffff;">Firdous , Chahal</span></b>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p style="color:#ffffff;">
+                15. Name & Phone No. of Driver
+                <b><span style="text-decoration: underline; color:#ffffff;">Showkat , 9906479944</span></b>
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+
+
+                        </div>
+
+                        <div class="text-center my-4">
+                            <table class="table table-bordered">
+                                <tr class="text-center">
+                                    <th>Self Approved by Mineral Concessionary</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <td><img src='https://geologymining.jk.gov.in//images/home/approveddd.png' width='120px' height='120px'></td>
+                                </tr>
+                            </table>
+                        </div>
+                                    </div>
+            </container>
         </div>
     </div>
-</div>
-</html>
+    </div>
+</body>
